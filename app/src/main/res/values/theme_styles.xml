@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/theme_bg</item>
+        <item name="android:listDivider">@drawable/fore_bg_top_line</item>
+    </style>
+    <style name="LoadingTheme" parent="DefaultTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/theme_title_height</item>
+        <item name="android:background">@color/theme_title_bg</item>
+        <item name="android:textColor">@color/theme_title</item>
+    </style>
+
+    <style name="Menu_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/theme_menu_text</item>
+        <item name="android:textColor">@color/theme_text</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxWidth">200dp</item>
+    </style>
+    <style name="Menu_Icon">
+        <item name="android:layout_width">@dimen/theme_menu_icon</item>
+        <item name="android:layout_height">@dimen/theme_menu_icon</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_marginLeft">@dimen/theme_padding</item>
+        <item name="android:layout_marginRight">@dimen/theme_padding</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Menu_Img">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_marginLeft">@dimen/theme_padding</item>
+        <item name="android:layout_marginRight">@dimen/theme_padding</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Menu_Arrow">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+    <style name="Menu_Hint">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/theme_menu_text_info</item>
+        <item name="android:textColor">@color/theme_menu_info</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="Tab_Menu_Container" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/theme_tab_bg</item>
+        <item name="android:paddingTop">@dimen/theme_padding_small</item>
+        <item name="android:paddingBottom">@dimen/theme_padding_small</item>
+    </style>
+    <style name="Tab_Menu_Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/theme_tab_text</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/theme_tab_text</item>
+    </style>
+    <style name="Tab_Menu_Icon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="Login_EditText" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/theme_input_height</item>
+        <item name="android:textColor">@color/theme_text</item>
+        <item name="android:textSize">@dimen/theme_text</item>
+        <item name="android:paddingLeft">@dimen/theme_padding_big</item>
+        <item name="android:paddingRight">@dimen/theme_padding_big</item>
+        <item name="android:drawablePadding">@dimen/theme_padding_big</item>
+        <item name="android:background">@color/theme_fore_bg</item>
+    </style>
+
+    <style name="ViewStyle">
+        <item name="android:background">#dae1e6</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
+
+</resources>

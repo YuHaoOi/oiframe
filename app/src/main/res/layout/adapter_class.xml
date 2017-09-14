@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginBottom="@dimen/theme_padding"
+    android:background="@color/theme_white"
+    android:orientation="vertical">
+    
+    <ImageView
+        android:id="@+id/class_iv"
+        android:layout_margin="15dp"
+        android:background="@color/theme_bg"
+        android:layout_width="144dp"
+        android:layout_height="82dp" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:text="111111111111111111111111111111111111111111111111111111111111"
+        android:layout_toRightOf="@id/class_iv"
+        android:layout_marginRight="@dimen/theme_padding_big"
+        android:layout_alignTop="@id/class_iv"
+        android:textColor="@color/theme_text_434c6e"
+        android:textSize="@dimen/theme_text_14"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/title_tv"
+        android:layout_toRightOf="@id/class_iv"
+        android:text="15点20开始学习"
+        android:padding="5dp"
+        android:textSize="@dimen/theme_text_10"
+        android:textColor="@color/theme_white"
+        android:background="@color/theme_focus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="4dp"
+        android:textColor="@color/theme_text_b6bbcc"
+        android:textSize="@dimen/theme_text_12"
+        android:id="@+id/num_tv"
+        android:layout_below="@id/time_tv"
+        android:layout_toRightOf="@id/class_iv"
+        android:text="30人报名"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="@dimen/theme_text_12"
+        android:text="¥ 200.00"
+        android:layout_marginRight="@dimen/theme_padding_big"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/num_tv"
+        android:textColor="@color/theme_text_ff5055"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+
+</RelativeLayout>

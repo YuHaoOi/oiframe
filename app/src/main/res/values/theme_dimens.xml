@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--padding间距-->
+    <dimen name="theme_padding_smaller">3dp</dimen>
+    <dimen name="theme_padding_small">5dp</dimen>
+    <dimen name="theme_pad">8dp</dimen>
+    <dimen name="theme_padding">10dp</dimen>
+    <dimen name="theme_padding_big">15dp</dimen>
+    <dimen name="theme_padding_bigger">20dp</dimen>
+    <dimen name="theme_padding_big_big">30dp</dimen>
+
+    <dimen name="theme_text">15sp</dimen>
+    <dimen name="theme_text_big">18sp</dimen>
+    <dimen name="theme_text_bigger">22sp</dimen>
+    <dimen name="theme_text_small">13sp</dimen>
+    <dimen name="theme_text_smaller">10sp</dimen>
+
+    <dimen name="theme_head">40dp</dimen>
+    <dimen name="theme_head_big">80dp</dimen>
+    <dimen name="theme_head_bigger">100dp</dimen>
+    <dimen name="theme_head_small">30dp</dimen>
+    <dimen name="theme_head_smaller">20dp</dimen>
+
+    <dimen name="theme_menu_height">45dp</dimen>
+    <dimen name="theme_menu_text">@dimen/theme_text</dimen>
+    <dimen name="theme_menu_icon">30dp</dimen>
+    <dimen name="theme_menu_text_info">@dimen/theme_text_small</dimen>
+
+    <dimen name="theme_title_height">44dp</dimen>
+    <dimen name="theme_title_text">18sp</dimen>
+    <dimen name="theme_title_icon">30dp</dimen>
+    <dimen name="theme_title_small">16sp</dimen>
+    <dimen name="theme_title_smaller">14sp</dimen>
+
+    <dimen name="theme_tab_height">55dp</dimen>
+    <dimen name="theme_tab_text">14sp</dimen>
+    <dimen name="theme_tab_icon">25dp</dimen>
+    <dimen name="theme_tab_padding">8dp</dimen>
+
+    <dimen name="theme_input_height">45dp</dimen>
+
+    <dimen name="theme_line_height">1dp</dimen>
+    <dimen name="theme_line_height_big">2dp</dimen>
+    <dimen name="theme_line_height_half">0.5dp</dimen>
+
+    <dimen name="theme_dialog_title_height">45dp</dimen>
+    <dimen name="theme_dialog_button_height">30dp</dimen>
+    <dimen name="theme_dialog_title_size">20sp</dimen>
+    <dimen name="theme_dialog_button_size">18sp</dimen>
+
+    <dimen name="theme_corner">5dp</dimen>
+    <dimen name="theme_corner_small">3dp</dimen>
+    <dimen name="theme_corner_smaller">2dp</dimen>
+    <dimen name="theme_corner_big">12dp</dimen>
+    <dimen name="theme_corner_bigger">15dp</dimen>
+
+    <dimen name="theme_input_height_small">35dp</dimen>
+    <dimen name="theme_item">80dp</dimen>
+
+    <dimen name="theme_text_10">10sp</dimen>
+    <dimen name="theme_text_11">11sp</dimen>
+    <dimen name="theme_text_12">12sp</dimen>
+    <dimen name="theme_text_13">13sp</dimen>
+    <dimen name="theme_text_14">14sp</dimen>
+    <dimen name="theme_text_15">15sp</dimen>
+    <dimen name="theme_text_16">16sp</dimen>
+    <dimen name="theme_text_18">18sp</dimen>
+    <dimen name="theme_text_20">20sp</dimen>
+
+
+</resources>
