@@ -102,4 +102,6 @@ public abstract class BaseFragment extends Fragment implements OnTitleEvent {
     public void onRightClick(View view) {
 
     }
+
+    protected void initEvents(){}
 }

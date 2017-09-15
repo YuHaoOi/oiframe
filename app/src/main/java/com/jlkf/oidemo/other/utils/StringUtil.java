@@ -2,7 +2,6 @@ package com.jlkf.oidemo.other.utils;
 
 
 import android.text.format.Time;
-import com.jlkf.oidemo.MainApplication;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -19,12 +18,8 @@ import java.util.regex.Pattern;
  * Created by Administrator on 2016/10/12.
  */
 public class StringUtil {
-    public static String getString(int i) {
-        return MainApplication.getInstance().getApplicationContext().getString(i);
-    }
 
     StringUtil(){
-
     };
 
     public static String secToTime(int time) {
@@ -214,8 +209,6 @@ public class StringUtil {
      *            开始时间
      * @param endTime
      *            结束时间
-     * @param type
-     *            返回类型 ==1----天，时，分。 ==2----时
      * @return 返回时间差
      */
     public static String getTimeDifference(String starTime, String endTime) {

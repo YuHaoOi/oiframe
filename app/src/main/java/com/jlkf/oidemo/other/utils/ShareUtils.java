@@ -41,13 +41,6 @@ public class ShareUtils {
         return sp.getBoolean(flag,defaultFlag);
     }
 
-    public void markFirst(){
-        setFlag(defaultFlag,false);
-    }
-
-    public boolean isFirst(){
-        return sp.getBoolean(defaultFlag,true);
-    }
 
     public void setCache(String key,String value){
         sp.edit().putString(key,value).apply();

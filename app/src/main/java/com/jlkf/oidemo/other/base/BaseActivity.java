@@ -131,9 +131,8 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     }
 
 
-
-    public Toast toast(CharSequence toast){
-        @SuppressLint("ShowToast") Toast t= Toast.makeText(this, toast, Toast.LENGTH_SHORT);
+    public Toast toast(CharSequence toast) {
+        @SuppressLint("ShowToast") Toast t = Toast.makeText(this, toast, Toast.LENGTH_SHORT);
         t.show();
         return t;
     }

@@ -1,4 +1,5 @@
 package com.jlkf.oidemo;
+import com.jlkf.oidemo.other.bean.UserBean;
 import com.jlkf.oidemo.other.utils.ShareUtils;
 
 /**
@@ -11,13 +12,12 @@ public class AppState {
 
     private boolean isLogin;
     private String userId;
-    private String userPhone; //用户名
     private String userName;
     private String userHead;
     private String userToken;
     private String sex;
-
     private String userNick;
+    private String password;
     private static AppState appState;
 
     private AppState(){}
@@ -31,6 +31,14 @@ public class AppState {
             }
         }
         return appState;
+    }
+
+    public String getPassword(){
+        return ShareUtils.getInstance().getCache(AppSet.FLAG_PASSWORD);
+    }
+
+    public void setPassword(String password){
+        ShareUtils.getInstance().setCache(AppSet.FLAG_PASSWORD, password);
     }
 
     public String getUserNick() {
@@ -66,15 +74,6 @@ public class AppState {
     public String getUserId() {
         userId = ShareUtils.getInstance().getCache(AppSet.FLAG_USERID);
         return userId;
-        //return "OJR0WXBPAP7OZU7O5M7FHG9MQ0F6ZA97";
-    }
-
-    public String getIsLoginUserId() {
-        if (isLogin) {
-            return getUserId();
-        } else {
-            return "";
-        }
     }
 
     public String getUserToken() {
@@ -92,15 +91,6 @@ public class AppState {
         ShareUtils.getInstance().setCache(AppSet.FLAG_USERID, userId);
     }
 
-    public String getUserPhone() {
-        userPhone = ShareUtils.getInstance().getCache(AppSet.FLAG_USERPHONE);
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
-        ShareUtils.getInstance().setCache(AppSet.FLAG_USERPHONE, userPhone);
-    }
 
     public String getUserName() {
         userName = ShareUtils.getInstance().getCache(AppSet.FLAG_USERNAME);
@@ -123,4 +113,8 @@ public class AppState {
         ShareUtils.getInstance().setCache(AppSet.FLAG_USERHEAD, userHead);
     }
 
+    public void setUserInfo(UserBean userInfo){
+        setUserName(userInfo.username);
+        setPassword(userInfo.password);
+    }
 }

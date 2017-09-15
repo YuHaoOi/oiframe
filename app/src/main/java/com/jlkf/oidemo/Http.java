@@ -6,5 +6,7 @@ package com.jlkf.oidemo;
  */
 public class Http {
     private Http() {}
-    public static final String ROOT = "http://120.25.103.13:8080/app-weserver-1.0/";
+    //http://120.25.237.198:8810/ceoAPP/api/user/login.do?loginName=18589080625&password=ede8fe4747908d485c17f01978e617ab
+
+    public static final String ROOT = "http://120.25.237.198:8810/ceoAPP/api/";
 }

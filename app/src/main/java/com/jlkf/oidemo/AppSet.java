@@ -11,11 +11,10 @@ public class AppSet {
     public static final int FOLDER_IMAGE=103;
 
     public static final String FLAG_ISLOGIN="isLogin";
-    public static final String FLAG_USERPHONE="userPhone";
     public static final String FLAG_USERID="userId";
     public static final String FLAG_USERNAME="userName";
     public static final String FLAG_NICKNAME="nickname";
-    public static final String FLAG_PWD="pwd";
+    public static final String FLAG_PASSWORD="password";
     public static final String FLAG_USERTOKEN="userToken";
     public static final String FLAG_USERHEAD="userHead";
     public static final String FLAG_EXPIRESIN="expiresin";
