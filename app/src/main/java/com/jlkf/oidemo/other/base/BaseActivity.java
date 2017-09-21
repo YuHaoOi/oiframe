@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.jlkf.oidemo.R;
@@ -31,7 +31,6 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     protected ProgressDialog waitDialog;
     public Title title;
     protected Context mContext;
-    public LinearLayout topBarLl;
 
     @Override
     public void onLeftClick(View view) {
@@ -63,8 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+        //设置屏幕竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //保存每个activity
         AppManager.activityCreated(this);
+        //隐藏键盘
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
@@ -135,6 +137,14 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
         @SuppressLint("ShowToast") Toast t = Toast.makeText(this, toast, Toast.LENGTH_SHORT);
         t.show();
         return t;
+    }
+
+    public int gColor(int id){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return getColor(id);
+        }else{
+            return this.getResources().getColor(id);
+        }
     }
 
     protected void hideSoftKeyboard() {

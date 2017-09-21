@@ -49,7 +49,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        //透明状态栏
         StatusBarUtil.transparencyBar(this);
+        //状态栏字体加深
+        StatusBarUtil.StatusBarDarkMode(this);
+        //初始化标签
         initTabs();
     }
 

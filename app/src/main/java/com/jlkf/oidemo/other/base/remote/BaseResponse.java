@@ -1,4 +1,4 @@
-package com.jlkf.oidemo.other.base;
+package com.jlkf.oidemo.other.base.remote;
 
 /**
  * Created by DuoNuo on 2017/9/15.

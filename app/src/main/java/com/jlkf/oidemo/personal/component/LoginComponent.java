@@ -2,15 +2,15 @@ package com.jlkf.oidemo.personal.component;
 
 import com.jlkf.oidemo.personal.activitys.LoginActivity;
 import com.jlkf.oidemo.personal.module.LoginModule;
-import com.jlkf.oidemo.personal.scrope.LoginActivityScrope;
+import com.jlkf.oidemo.personal.scrope.PerActivity;
 
-import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by DuoNuo on 2017/9/15.
  */
-@LoginActivityScrope
-@Component(modules = {LoginModule.class})
+@PerActivity
+@Subcomponent(modules = {LoginModule.class})
 public interface LoginComponent  {
     void inject(LoginActivity loginActivity);
 }

@@ -1,7 +1,9 @@
 package com.jlkf.oidemo.personal.module;
 
+import com.jlkf.oidemo.other.base.remote.ApiManager;
 import com.jlkf.oidemo.personal.View.LoginView;
 import com.jlkf.oidemo.personal.presenter.LoginPresenter;
+import com.jlkf.oidemo.personal.scrope.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,13 +18,14 @@ public class LoginModule {
     public LoginModule(LoginView loginView){
         this.loginView = loginView;
     }
-    @Provides
-    LoginView provideLoginView(){
+
+    @Provides @PerActivity
+    public LoginView provideLoginView(){
         return loginView;
     }
 
-    @Provides
-    LoginPresenter provideLoginPresenter(){
-        return new LoginPresenter(loginView);
+    @Provides @PerActivity
+    public LoginPresenter provideLoginPresenter(ApiManager apiManager){
+        return new LoginPresenter(loginView, apiManager);
     }
 }

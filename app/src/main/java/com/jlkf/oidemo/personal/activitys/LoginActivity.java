@@ -9,11 +9,11 @@ import android.widget.EditText;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
+import com.jlkf.oidemo.MainApplication;
 import com.jlkf.oidemo.R;
 import com.jlkf.oidemo.other.base.BaseActivity;
 import com.jlkf.oidemo.other.bean.UserBean;
 import com.jlkf.oidemo.personal.View.LoginView;
-import com.jlkf.oidemo.personal.component.DaggerLoginComponent;
 import com.jlkf.oidemo.personal.module.LoginModule;
 import com.jlkf.oidemo.personal.presenter.LoginPresenter;
 
@@ -25,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import timber.log.Timber;
 
 
 public class LoginActivity extends BaseActivity implements LoginView {
@@ -51,7 +52,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     protected void initViews() {
-        DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
+        MainApplication.get().getAppComponent().plus(new LoginModule(this)).inject(this);
     }
 
 
@@ -61,6 +62,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         RxView.clicks(login).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(new Consumer<Object>() {
             @Override
             public void accept(@NonNull Object o) throws Exception {
+                loginPresenter.login("18589080625","ede8fe4747908d485c17f01978e617ab");
             }
         });
         //用户名
@@ -86,12 +88,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void showLoading() {
-
+        setLoading(true);
     }
 
     @Override
     public void hideLoading() {
-
+        setLoading(false);
     }
 
     @Override
@@ -107,7 +109,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void showUser(UserBean userBean) {
-
+        Timber.e(userBean.nickname);
     }
 
     public static void actionStart(Context context) {
