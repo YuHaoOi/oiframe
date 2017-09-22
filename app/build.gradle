@@ -56,5 +56,7 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:3.0.1'
     /*Timber*/
     compile 'com.jakewharton.timber:timber:4.5.1'
+    /*BasePopup*/
+    compile 'com.github.razerdp:BasePopup:1.8.2'
 
 }

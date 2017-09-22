@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.jlkf.oidemo.R;
 import com.jlkf.oidemo.other.event.OnTitleEvent;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * description
  *
@@ -24,6 +27,7 @@ public abstract class BaseFragment extends Fragment implements OnTitleEvent {
     public View rootView;
     protected Title title;
     protected Context mContext;
+    private Unbinder unbinder;
 
     @Nullable
     @Override
@@ -36,14 +40,64 @@ public abstract class BaseFragment extends Fragment implements OnTitleEvent {
                 ((ViewGroup) rootView.getParent()).removeView(rootView);
             }
         }
+        init();
         return rootView;
     }
 
+    public void init(){
+        unbinder = ButterKnife.bind(this, rootView);
+        initViews();
+        initDatas();
+        initEvents();
+    }
+
+    protected abstract void initEvents();
+    protected abstract void initDatas();
+    protected abstract void initViews();
+
     public abstract View onCreateRootView(LayoutInflater inflater, ViewGroup container);
 
-    public View findViewById(int id) {
-        return rootView.findViewById(id);
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
+
+
+    /******************************标题栏********************************************************/
+    
+    protected void supportTitle(boolean isSupport){
+        if(isSupport){
+            View v = rootView.findViewById(R.id.title);
+            if(v!=null){
+                title = new Title(v,this);
+            }else{
+                try {
+                    throw new Exception("Cannot find Title");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onCenterClick(View view) {
+
+    }
+
+    @Override
+    public void onLeftClick(View view) {
+
+    }
+
+    @Override
+    public void onRightClick(View view) {
+
+    }
+
+    /**************************公共方法************************************************************/
 
     public int gColor(int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -72,36 +126,4 @@ public abstract class BaseFragment extends Fragment implements OnTitleEvent {
         return (BaseActivity) getActivity();
     }
 
-    
-    protected void supportTitle(boolean isSupport){
-        if(isSupport){
-            View v = findViewById(R.id.title);
-            if(v!=null){
-                title = new Title(v,this);
-            }else{
-                try {
-                    throw new Exception("Cannot find Title");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override
-    public void onCenterClick(View view) {
-
-    }
-
-    @Override
-    public void onLeftClick(View view) {
-
-    }
-
-    @Override
-    public void onRightClick(View view) {
-
-    }
-
-    protected void initEvents(){}
 }

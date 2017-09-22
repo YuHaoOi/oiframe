@@ -13,7 +13,6 @@ import com.jlkf.oidemo.personal.activitys.LoginActivity;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
@@ -30,19 +29,26 @@ public class PersonalFragment extends BaseFragment {
     @Override
     public View onCreateRootView(LayoutInflater inflater, ViewGroup container) {
         rootView = inflater.inflate(R.layout.fragment_personal, container, false);
-        ButterKnife.bind(this, rootView);
-        initEvents();
         return rootView;
     }
 
     @Override
     protected void initEvents() {
-        super.initEvents();
         RxView.clicks(loginBtn).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(new Consumer<Object>() {
             @Override
             public void accept(@NonNull Object o) throws Exception {
                 LoginActivity.actionStart(getContext());
             }
         });
+    }
+
+    @Override
+    protected void initDatas() {
+
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 }

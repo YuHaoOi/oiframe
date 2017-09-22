@@ -18,7 +18,6 @@ import com.jlkf.oidemo.personal.PersonalFragment;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
@@ -41,10 +40,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        initViews();
-        initEvents();
-        initDatas();
     }
 
     @Override

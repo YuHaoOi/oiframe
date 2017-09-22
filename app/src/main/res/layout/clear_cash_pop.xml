@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <RelativeLayout
+        android:id="@+id/popup_anima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog"
+        android:layout_centerInParent="true"
+        android:layout_margin="25dp">
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="30dp"
+            android:textSize="16sp"
+            android:textColor="#262a37"
+            android:lineSpacingMultiplier="1.2"
+            android:gravity="center"
+            android:text="成功清理缓存23.5M"
+            />
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/content"
+            android:background="#9c9c9c"
+            />
+
+        <LinearLayout
+            android:layout_below="@id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="#bfbfbf"
+                android:textSize="14sp"
+                android:layout_below="@id/line2"
+                android:text="取消"/>
+
+            <View
+                android:background="#9c9c9c"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="#21b751"
+                android:textSize="14sp"
+                android:layout_below="@id/line2"
+                android:layout_toRightOf="@id/cancel"
+                android:text="确定"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

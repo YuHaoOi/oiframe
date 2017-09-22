@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +22,8 @@ import com.jlkf.oidemo.R;
 import com.jlkf.oidemo.other.event.OnTitleEvent;
 import com.jlkf.oidemo.other.utils.AppManager;
 
+import butterknife.ButterKnife;
+
 
 /**
  * description
@@ -31,6 +34,58 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     protected ProgressDialog waitDialog;
     public Title title;
     protected Context mContext;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = this;
+        //设置屏幕竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //保存每个activity
+        AppManager.activityCreated(this);
+        //隐藏键盘
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+    }
+
+    /***********************初始化方法********************************************************/
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        ButterKnife.bind(this);
+        initViews();
+        initEvents();
+        initDatas();
+    }
+
+    protected abstract void initViews();
+
+    protected abstract void initEvents();
+
+    protected abstract void initDatas();
+
+
+    @Override
+    protected void onDestroy() {
+        AppManager.activityDestroyed(this);
+        super.onDestroy();
+    }
+
+    /*************************标题栏***********************************************************/
+
+    public void supportTitle(boolean isSupport) {
+        if (isSupport) {
+            View v = findViewById(R.id.title);
+            if (v != null) {
+                title = new Title(v, this);
+            } else {
+                try {
+                    throw new Exception("Cannot find Title");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     @Override
     public void onLeftClick(View view) {
@@ -48,59 +103,8 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
 
     }
 
-    public int getDisplayWidth() {
-        int width = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getWidth();
-        return width;
-    }
 
-    public int getDisplayHeight() {
-        int height = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getHeight();
-        return height;
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mContext = this;
-        //设置屏幕竖屏
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        //保存每个activity
-        AppManager.activityCreated(this);
-        //隐藏键盘
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-    }
-
-    protected abstract void initViews();
-
-    protected abstract void initEvents();
-
-    protected abstract void initDatas();
-
-
-    @Override
-    protected void onDestroy() {
-        AppManager.activityDestroyed(this);
-        super.onDestroy();
-    }
-
-    /**
-     * 是否为当前的activity添加标题
-     */
-    public void supportTitle(boolean isSupport) {
-        if (isSupport) {
-            View v = findViewById(R.id.title);
-            if (v != null) {
-                title = new Title(v, this);
-            } else {
-                try {
-                    throw new Exception("Cannot find Title");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+    /********************公共方法*****************************************************************/
 
     public void setLoading(boolean isLoading) {
         try {
@@ -153,5 +157,15 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
             InputMethodManager inputmanger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             inputmanger.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    public int getDisplayWidth() {
+        int width = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getWidth();
+        return width;
+    }
+
+    public int getDisplayHeight() {
+        int height = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getHeight();
+        return height;
     }
 }

@@ -23,8 +23,6 @@ import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by DuoNuo on 2017/5/22
@@ -36,19 +34,10 @@ public class HomeFragment extends BaseFragment {
     Banner banner;
     @BindView(R.id.enter_rv)
     RecyclerView enterRv;
-    private Unbinder unbinder;
     private EnterAdapter enterAdapter;
 
     @Override
-    public View onCreateRootView(LayoutInflater inflater, ViewGroup container) {
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
-        initOiViews();
-        initOiEvents();
-        return rootView;
-    }
-
-    protected void initOiEvents() {
+    protected void initEvents() {
         enterAdapter.setOnClickListener(new ClickUtils.OnClickListener() {
             @Override
             public void onClick(View v, int type, int pos, int child) {
@@ -61,9 +50,21 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    protected void initOiViews() {
+    @Override
+    protected void initDatas() {
+
+    }
+
+    @Override
+    protected void initViews() {
         initBanner();
         initEnterRv();
+    }
+
+    @Override
+    public View onCreateRootView(LayoutInflater inflater, ViewGroup container) {
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        return rootView;
     }
 
     private void initEnterRv() {
@@ -85,11 +86,5 @@ public class HomeFragment extends BaseFragment {
         banner.setImages(images);
         banner.setIndicatorGravity(BannerConfig.CENTER);
         banner.start();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }
