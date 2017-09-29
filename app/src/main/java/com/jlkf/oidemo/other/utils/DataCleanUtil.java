@@ -13,11 +13,12 @@ import java.math.BigDecimal;
 public class DataCleanUtil {
     /**
      * 计算缓存大小
+     *
      * @param context
      * @return
      * @throws Exception
      */
-    public static String getTotalCacheSize(Context context)  {
+    public static String getTotalCacheSize(Context context) {
         long cacheSize = 0;
         try {
             cacheSize = getFolderSize(context.getCacheDir());
@@ -48,7 +49,7 @@ public class DataCleanUtil {
                 }
             }
         }
-        return dir==null?false:dir.delete();
+        return dir == null ? false : dir.delete();
     }
 
     // 获取文件

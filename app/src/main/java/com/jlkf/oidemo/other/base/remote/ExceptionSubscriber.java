@@ -33,26 +33,30 @@ public class ExceptionSubscriber<T> implements Observer<T> {
         } else {
             Toast.makeText(application, "error:" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        if (simpleCallback != null)
+        if (simpleCallback != null){
             simpleCallback.onComplete();
+        }
     }
 
     @Override
     public void onComplete() {
-        if (simpleCallback != null)
+        if (simpleCallback != null){
             simpleCallback.onComplete();
+        }
     }
 
 
     @Override
     public void onSubscribe(Disposable d) {
-        if (simpleCallback != null)
+        if (simpleCallback != null){
             simpleCallback.onStart();
+        }
     }
 
     @Override
     public void onNext(T t) {
-        if (simpleCallback != null)
+        if (simpleCallback != null){
             simpleCallback.onNext(t);
+        }
     }
 }
