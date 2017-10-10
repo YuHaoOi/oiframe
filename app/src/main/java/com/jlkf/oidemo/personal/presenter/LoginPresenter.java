@@ -8,6 +8,8 @@ import com.jlkf.oidemo.other.base.remote.SimpleCallback;
 import com.jlkf.oidemo.other.bean.UserBean;
 import com.jlkf.oidemo.personal.View.LoginView;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by DuoNuo on 2017/9/15.
  */
@@ -26,8 +28,8 @@ public class LoginPresenter {
         loginView.canLogin(!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password));
     }
 
-    public void login(String username,String password){
-        apiManager.login(username, password, new SimpleCallback<UserBean>() {
+    public Disposable login(String username, String password){
+        return apiManager.login(username, password, new SimpleCallback<UserBean>() {
             @Override
             public void onStart() {
                 loginView.showLoading();
@@ -43,6 +45,7 @@ public class LoginPresenter {
                 loginView.hideLoading();
             }
         });
+
     }
 
     public void saveUserInfo(UserBean userBean){

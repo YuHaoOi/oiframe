@@ -6,19 +6,17 @@ import android.widget.Toast;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
 
 /**
- * Created by DuoNuo on 2017/9/21.
+ * DisposableObserver实现了Disposable接口，可以通过subscribeWith返回
  */
-
-public class ExceptionSubscriber<T> implements Observer<T> {
+public class ExceptionSubscriber<T> extends DisposableObserver<T> {
 
     private SimpleCallback<T> simpleCallback;
     private Application application;
 
-    public ExceptionSubscriber(SimpleCallback simpleCallback, Application application) {
+    public ExceptionSubscriber(SimpleCallback<T> simpleCallback, Application application) {
         this.simpleCallback = simpleCallback;
         this.application = application;
     }
@@ -47,7 +45,8 @@ public class ExceptionSubscriber<T> implements Observer<T> {
 
 
     @Override
-    public void onSubscribe(Disposable d) {
+    protected void onStart() {
+        super.onStart();
         if (simpleCallback != null){
             simpleCallback.onStart();
         }

@@ -16,7 +16,12 @@ public class BaseResponseFunc<T> implements Function<BaseResponse<T>, Observable
         if (tBaseResponse.code != 200) {
             return Observable.error(new Throwable(tBaseResponse.msg));
         } else {
-            return Observable.just(tBaseResponse.data);
+            if (tBaseResponse.data != null) {
+                return Observable.just(tBaseResponse.data);
+            } else {
+                //返回的data为null的时候，返回msg回去，控制ApiService的泛型为String即可
+                return (Observable<T>) Observable.just(tBaseResponse.msg);
+            }
         }
     }
 }

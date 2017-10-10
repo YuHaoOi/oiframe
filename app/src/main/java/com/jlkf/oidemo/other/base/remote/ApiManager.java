@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.jlkf.oidemo.other.bean.UserBean;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by DuoNuo on 2017/9/21.
  */
@@ -18,15 +20,15 @@ public class ApiManager {
         this.application = application;
     }
 
-    public void login(String userName, String password, SimpleCallback<UserBean> simpleCallback){
+    // 返回Disposable解决Activity内存泄漏问题
+    public Disposable login(String userName, String password, SimpleCallback<UserBean> simpleCallback){
 //        apiService.login(userName, password)
 //                .flatMap(new BaseResponseFunc<UserBean>())
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(new ExceptionSubscriber<UserBean>(simpleCallback, application));
-
-        apiService.login(userName, password)
+         return apiService.login(userName, password)
                 .compose(new NetTransformer<UserBean>())
-                .subscribe(new ExceptionSubscriber<UserBean>(simpleCallback, application));
+                .subscribeWith(new ExceptionSubscriber<>(simpleCallback, application));
     }
 }

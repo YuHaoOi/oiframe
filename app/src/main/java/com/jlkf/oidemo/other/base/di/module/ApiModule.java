@@ -28,11 +28,14 @@ public class ApiModule {
     public OkHttpClient provideOKHttpClient(){
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (BuildConfig.DEBUG){
+            //添加网络日志
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(httpLoggingInterceptor);
         }
-        builder.connectTimeout(60 *1000, TimeUnit.MICROSECONDS)
+        //连接时间
+        builder.connectTimeout(60 *1000, TimeUnit.MILLISECONDS)
+                //超时时间
                 .readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
         return builder.build();
     }

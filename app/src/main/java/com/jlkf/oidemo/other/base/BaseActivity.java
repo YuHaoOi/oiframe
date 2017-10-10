@@ -23,6 +23,8 @@ import com.jlkf.oidemo.other.event.OnTitleEvent;
 import com.jlkf.oidemo.other.utils.AppManager;
 
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 
 /**
@@ -34,6 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     protected ProgressDialog waitDialog;
     public Title title;
     protected Context mContext;
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
     @Override
     protected void onDestroy() {
         AppManager.activityDestroyed(this);
+        compositeDisposable.clear();
         super.onDestroy();
     }
 
@@ -105,6 +109,13 @@ public abstract class BaseActivity extends AppCompatActivity implements OnTitleE
 
 
     /********************公共方法*****************************************************************/
+
+    /**
+     * 将每次返回的Disposable保存起来，在destroy里面切断，防止内存泄漏
+     */
+    public void addComposeable(Disposable disposable){
+        compositeDisposable.add(disposable);
+    }
 
     public void setLoading(boolean isLoading) {
         try {

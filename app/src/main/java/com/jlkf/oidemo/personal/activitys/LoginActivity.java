@@ -57,7 +57,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         RxView.clicks(login).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(new Consumer<Object>() {
             @Override
             public void accept(@NonNull Object o) throws Exception {
-                loginPresenter.login("18589080625","ede8fe4747908d485c17f01978e617ab");
+                addComposeable(loginPresenter.login("18589080625","ede8fe4747908d485c17f01978e617ab"));
             }
         });
         //用户名
