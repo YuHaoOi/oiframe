@@ -3,6 +3,7 @@ package com.jlkf.oidemo.contacts.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import butterknife.BindView;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
-public class CacheActivity extends BaseActivity {
+public class CacheActivity extends BaseActivity implements ClearCashPop.ICallback {
 
     @BindView(R.id.clear_btn)
     Button clearBtn;
@@ -44,17 +45,15 @@ public class CacheActivity extends BaseActivity {
         RxView.clicks(clearBtn).throttleFirst(500, TimeUnit.MICROSECONDS).subscribe(new Consumer<Object>() {
             @Override
             public void accept(@NonNull Object o) throws Exception {
-                //清除缓存
-                DataCleanUtil.clearAllCache(CacheActivity.this);
                 showCachePop();
             }
         });
     }
 
+
     private void showCachePop() {
-        ClearCashPop clearCashPop = new ClearCashPop(this);
+        ClearCashPop clearCashPop = new ClearCashPop(this, this);
         clearCashPop.showPopupWindow();
-        infoTv.setText("缓存大小:" + cacheSize);
     }
 
     @Override
@@ -65,5 +64,23 @@ public class CacheActivity extends BaseActivity {
     public static void actionStart(Context context){
         Intent intent = new Intent(context, CacheActivity.class);
         context.startActivity(intent);
+    }
+
+    //弹窗确定回调
+    @Override
+    public void sureClick() {
+        Snackbar.make(infoTv, "确定", Snackbar.LENGTH_SHORT).show();
+        //清除缓存
+        DataCleanUtil.clearAllCache(CacheActivity.this);
+        //更新缓存大小
+        cacheSize = DataCleanUtil.getTotalCacheSize(this);
+        infoTv.setText("缓存大小:" + cacheSize);
+
+    }
+
+    //弹窗取消回调
+    @Override
+    public void cancleClick() {
+        Snackbar.make(infoTv, "取消", Snackbar.LENGTH_SHORT).show();
     }
 }

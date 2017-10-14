@@ -1,9 +1,7 @@
 package com.jlkf.oidemo;
 
 /**
- * description
  *
- * @author created by wuwang on 2016/5/17
  */
 public class AppSet {
     public static final int FOLDER_DATA=101;

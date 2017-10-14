@@ -28,6 +28,7 @@ public class MainApplication extends Application {
         ShareUtils.getInstance().init(this);
         mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).apiModule(new ApiModule()).build();
         initTimber();
+
     }
 
     private void initTimber() {
