@@ -55,8 +55,9 @@ dependencies {
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.github.razerdp:BasePopup:1.8.2'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    /*rxpermissions*/
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.4'
-    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar' //rxpermissions
 }

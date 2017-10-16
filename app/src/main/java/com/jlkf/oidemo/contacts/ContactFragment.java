@@ -11,6 +11,7 @@ import com.jlkf.oidemo.R;
 import com.jlkf.oidemo.contacts.activity.CacheActivity;
 import com.jlkf.oidemo.contacts.activity.TakePhoneActivity;
 import com.jlkf.oidemo.contacts.adapters.InfoAdapter;
+import com.jlkf.oidemo.contacts.provider.ProviderActivity;
 import com.jlkf.oidemo.other.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class ContactFragment extends BaseFragment implements BaseQuickAdapter.On
         List<String> data = new ArrayList<>();
         data.add("缓存");
         data.add("相机");
-        data.add("ddd");
+        data.add("Provider");
         infoAdapter = new InfoAdapter(R.layout.adapter_info, data);
         infoRv.setAdapter(infoAdapter);
     }
@@ -71,6 +72,9 @@ public class ContactFragment extends BaseFragment implements BaseQuickAdapter.On
                 break;
             case 1:
                 TakePhoneActivity.actionStart(getContext());//相机
+                break;
+            case 2:
+                ProviderActivity.actionStart(getContext());//Provider
                 break;
         }
     }
