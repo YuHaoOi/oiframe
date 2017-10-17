@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jlkf.oidemo.contacts.brocastreceiver.BrocastReceiverActivity">
+
+    <Button
+        android:id="@+id/local_btn"
+        android:onClick="sendBroadcast"
+        android:text="发送广播"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        app:layout_constraintStart_toEndOf="@id/local_btn"
+        android:id="@+id/dynamic_btn"
+        android:onClick="sendDynamicBroadcast"
+        android:text="发送有序广播"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        app:layout_constraintStart_toEndOf="@id/dynamic_btn"
+        android:id="@+id/permisson_btn"
+        android:onClick="sendPermissonBroadcast"
+        android:text="发送权限广播"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@id/dynamic_btn"
+        android:id="@+id/quick_btn"
+        android:onClick="sendQuickBroadcast"
+        android:text="发送本地广播"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</android.support.constraint.ConstraintLayout>

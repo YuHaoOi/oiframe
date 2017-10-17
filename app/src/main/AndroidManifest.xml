@@ -6,10 +6,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <!--定义Provider权限-->
     <permission
         android:name="me.yuhao.database.READ"
         android:protectionLevel="normal" />
+    <!--定义广播权限-->
+    <permission android:name="com.yuhao.BROCAST"
+        android:protectionLevel="normal" />
+    <!--申请广播权限:申请了这个权限才能够收到带有这个权限的广播-->
+    <uses-permission android:name="com.yuhao.BROCAST"/>
 
     <application
         android:name=".MainApplication"
@@ -31,6 +36,7 @@
         <activity android:name=".contacts.activity.CacheActivity" />
         <activity android:name=".contacts.activity.TakePhoneActivity" />
         <activity android:name=".contacts.provider.ProviderActivity" />
+        <activity android:name=".contacts.brocastreceiver.BrocastReceiverActivity"/>
         <!-- 适配7.0拍照权限 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -41,18 +47,30 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <!--Provider注册
+        <!--
+            Provider注册
             android:exported 设置此provider是否可以被其他应用使用。
             android:readPermission 该provider的读权限的标识
             android:writePermission 该provider的写权限标识
             android:permission provider读写权限标识
-            android:grantUriPermissions 临时权限标识-->
+            android:grantUriPermissions 临时权限标识
+        -->
         <provider
             android:name=".contacts.provider.TestProvider"
             android:authorities="me.pengtao.contentprovidertest"
             android:exported="true"
             android:readPermission="me.yuhao.database.READ" />
 
+        <!--静态注册广播 静态注册是常驻型，也就是说当应用程序关闭后，如果有信息广播来，程序也会被系统调用自动运行
+            priority测试有序广播-->
+        <receiver android:name=".contacts.brocastreceiver.MyReceiver"
+            android:exported="true"
+            android:enabled="true"
+            android:permission="com.yuhao.BROCAST">
+            <intent-filter android:priority="100">
+                <action android:name="com.yuhao.broadcast"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 
