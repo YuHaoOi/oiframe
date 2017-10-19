@@ -6,15 +6,16 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <!--定义Provider权限-->
+    <!-- 定义Provider权限 -->
     <permission
         android:name="me.yuhao.database.READ"
         android:protectionLevel="normal" />
-    <!--定义广播权限-->
-    <permission android:name="com.yuhao.BROCAST"
+    <!-- 定义广播权限 -->
+    <permission
+        android:name="com.yuhao.BROCAST"
         android:protectionLevel="normal" />
-    <!--申请广播权限:申请了这个权限才能够收到带有这个权限的广播-->
-    <uses-permission android:name="com.yuhao.BROCAST"/>
+    <!-- 申请广播权限:申请了这个权限才能够收到带有这个权限的广播 -->
+    <uses-permission android:name="com.yuhao.BROCAST" />
 
     <application
         android:name=".MainApplication"
@@ -36,7 +37,7 @@
         <activity android:name=".contacts.activity.CacheActivity" />
         <activity android:name=".contacts.activity.TakePhoneActivity" />
         <activity android:name=".contacts.provider.ProviderActivity" />
-        <activity android:name=".contacts.brocastreceiver.BrocastReceiverActivity"/>
+        <activity android:name=".contacts.brocastreceiver.BrocastReceiverActivity" />
         <!-- 适配7.0拍照权限 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -61,17 +62,21 @@
             android:exported="true"
             android:readPermission="me.yuhao.database.READ" />
 
-        <!--静态注册广播 静态注册是常驻型，也就是说当应用程序关闭后，如果有信息广播来，程序也会被系统调用自动运行
-            priority测试有序广播-->
-        <receiver android:name=".contacts.brocastreceiver.MyReceiver"
-            android:exported="true"
+        <!--
+            静态注册广播 静态注册是常驻型，也就是说当应用程序关闭后，如果有信息广播来，程序也会被系统调用自动运行
+            priority测试有序广播
+        -->
+        <receiver
+            android:name=".contacts.brocastreceiver.MyReceiver"
             android:enabled="true"
+            android:exported="true"
             android:permission="com.yuhao.BROCAST">
             <intent-filter android:priority="100">
-                <action android:name="com.yuhao.broadcast"/>
+                <action android:name="com.yuhao.broadcast" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".home.activity.SetEnterActivity"></activity>
     </application>
 
 </manifest>
