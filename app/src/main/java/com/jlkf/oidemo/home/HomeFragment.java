@@ -111,7 +111,7 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         switch (position){
             case 0:
-                SetEnterActivity.actionStart(getContext());//缓存
+                SetEnterActivity.actionStart(getContext());//SetEnterView
                 break;
         }
     }

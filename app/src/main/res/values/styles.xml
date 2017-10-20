@@ -47,7 +47,14 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         !-- 背景透明 -->
         <item name="android:backgroundDimEnabled">true</item>
-
     </style>
+    <!--SetEnterView的自定义属性-->
+    <declare-styleable name="SetEnterView">
+        <attr name="left_text" format="string" />
+        <attr name="left_text_color" format="color" />
+        <attr name="left_icon" format="reference" />
+        <attr name="right_icon" format="reference" />
+        <attr name="show_bottom_line" format="boolean"/>
+    </declare-styleable>
 
 </resources>
