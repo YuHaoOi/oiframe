@@ -7,13 +7,12 @@
     tools:context="com.jlkf.oidemo.home.activity.SetEnterActivity">
 
     <com.jlkf.oidemo.home.widget.SetEnterView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:left_icon="@mipmap/icon_left_iv"
         app:left_text="标题文字"
         app:right_icon="@mipmap/icon_enter"
         app:left_text_color="@color/theme_focus"
-        app:show_bottom_line="false"
-        />
+        app:show_bottom_line="false" />
 
 </android.support.constraint.ConstraintLayout>
