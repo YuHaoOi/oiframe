@@ -30,6 +30,16 @@
         android:layout_marginRight="@dimen/theme_padding_big"
         android:src="@mipmap/icon_enter" />
 
+    <TextView
+        android:id="@+id/info_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/right_iv"
+        android:gravity="center"
+        android:text="小王子"
+        android:textSize="@dimen/theme_text_small"
+        android:layout_marginRight="@dimen/theme_padding"
+        android:textColor="@color/theme_text_grey" />
     <View
         android:id="@+id/bottom_line"
         style="@style/ViewStyle"

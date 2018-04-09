@@ -55,6 +55,9 @@
         <attr name="left_icon" format="reference" />
         <attr name="right_icon" format="reference" />
         <attr name="show_bottom_line" format="boolean"/>
+        <attr name="show_left_icon" format="boolean" />
+        <attr name="info_text" format="string"/>
+        <attr name="show_info" format="boolean" />
     </declare-styleable>
 
 </resources>

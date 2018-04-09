@@ -11,7 +11,7 @@ import com.jlkf.oidemo.personal.View.LoginView;
 import io.reactivex.disposables.Disposable;
 
 /**
- * Created by DuoNuo on 2017/9/15.
+ * Created by DuoNuo on 2017/9/15
  */
 
 public class LoginPresenter {
